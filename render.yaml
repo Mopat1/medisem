@@ -1,0 +1,15 @@
+# Optional Render Blueprint. You can also just use New -> Static Site in the
+# dashboard with an empty build command and "." as the publish directory.
+services:
+  - type: web
+    name: medisem
+    runtime: static
+    staticPublishPath: .
+    buildCommand: ""
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
